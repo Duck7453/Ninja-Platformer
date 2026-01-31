@@ -11,6 +11,7 @@ config_version=5
 [application]
 
 config/name="Ninja Platformer"
+run/main_scene="uid://bfie0cbimkj75"
 config/features=PackedStringArray("4.5", "Forward Plus")
 config/icon="res://icon.svg"
 
