@@ -1,11 +1,12 @@
 extends CharacterBody2D
+class_name PlayerScript
 
 @export var speed = 5.0
 @export var jump = 10.0
 var speed_m = 20.0
 var jump_m = -20.0
 var direction = 0
-
+ 
 
 
 func _physics_process(delta: float) -> void:
