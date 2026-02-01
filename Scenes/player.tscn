@@ -1,27 +1,9 @@
-[gd_scene load_steps=10 format=3 uid="uid://c6ck47fxl4vb4"]
+[gd_scene load_steps=11 format=3 uid="uid://c6ck47fxl4vb4"]
 
 [ext_resource type="Script" uid="uid://chwgq72dfr5l3" path="res://Scripts/player_script.gd" id="1_cvnsp"]
 [ext_resource type="Texture2D" uid="uid://dkiklrw8mwbyn" path="res://FreeNinja/YellowNinja/yellowNinja - idle.png" id="1_v0iea"]
 [ext_resource type="Script" uid="uid://3xjh3aadjjbb" path="res://Scenes/player_animator.gd" id="2_vgqql"]
 [ext_resource type="Texture2D" uid="uid://c8p1j10wjku32" path="res://FreeNinja/YellowNinja/yellowNinja - walk.png" id="3_6t5aa"]
-
-[sub_resource type="Animation" id="Animation_cvnsp"]
-resource_name = "idle"
-length = 2.0
-loop_mode = 1
-step = 0.25
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("Idle:region_rect")
-tracks/0/interp = 0
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.25, 0.5, 0.75, 1, 1.25, 1.5, 1.75, 2),
-"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1),
-"update": 0,
-"values": [Rect2(48, 61, 25, 35), Rect2(176, 61, 25, 35), Rect2(304, 60, 25, 36), Rect2(432, 60, 25, 36), Rect2(560, 61, 25, 35), Rect2(688, 62, 25, 34), Rect2(816, 62, 25, 34), Rect2(944, 62, 25, 34), Rect2(944, 62, 25, 34)]
-}
 
 [sub_resource type="Animation" id="Animation_6t5aa"]
 length = 0.001
@@ -50,6 +32,24 @@ tracks/1/keys = {
 "values": [Rect2(48, 61, 25, 35)]
 }
 
+[sub_resource type="Animation" id="Animation_cvnsp"]
+resource_name = "idle"
+length = 2.0
+loop_mode = 1
+step = 0.25
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Idle:region_rect")
+tracks/0/interp = 0
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.25, 0.5, 0.75, 1, 1.25, 1.5, 1.75, 2),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1),
+"update": 0,
+"values": [Rect2(48, 61, 25, 35), Rect2(176, 61, 25, 35), Rect2(304, 60, 25, 36), Rect2(432, 60, 25, 36), Rect2(560, 61, 25, 35), Rect2(688, 62, 25, 34), Rect2(816, 62, 25, 34), Rect2(944, 62, 25, 34), Rect2(944, 62, 25, 34)]
+}
+
 [sub_resource type="Animation" id="Animation_vgqql"]
 resource_name = "walk"
 length = 2.25
@@ -68,9 +68,16 @@ tracks/0/keys = {
 "values": [Rect2(48, 61, 25, 35), Rect2(176, 61, 25, 35), Rect2(304, 60, 25, 36), Rect2(432, 60, 25, 36), Rect2(560, 61, 25, 35), Rect2(688, 62, 25, 34), Rect2(816, 61, 25, 35), Rect2(944, 60, 25, 36), Rect2(1072, 60, 28, 36), Rect2(1200, 61, 26, 35)]
 }
 
+[sub_resource type="Animation" id="Animation_x3wgy"]
+resource_name = "attack"
+length = 4.75
+loop_mode = 1
+step = 0.25
+
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_vgqql"]
 _data = {
 &"RESET": SubResource("Animation_6t5aa"),
+&"attack": SubResource("Animation_x3wgy"),
 &"idle": SubResource("Animation_cvnsp"),
 &"walk": SubResource("Animation_vgqql")
 }
@@ -100,12 +107,12 @@ autoplay = "idle"
 speed_scale = 1.5
 
 [node name="Idle" type="Sprite2D" parent="PlayerAnimator"]
-visible = false
 texture = ExtResource("1_v0iea")
 region_enabled = true
 region_rect = Rect2(48, 61, 25, 35)
 
 [node name="walk" type="Sprite2D" parent="PlayerAnimator"]
+visible = false
 texture = ExtResource("3_6t5aa")
 region_enabled = true
 region_rect = Rect2(48, 61, 25, 35)

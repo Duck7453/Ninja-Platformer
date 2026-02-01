@@ -19,6 +19,7 @@ func _process(_delta):
 		walk.show()
 		animation.play("walk")
 	else:
-		idle.show()
-		walk.hide()
-		animation.play("idle")
+		if not Input.is_action_pressed("attack"):
+			idle.show()
+			walk.hide()
+			animation.play("idle")
